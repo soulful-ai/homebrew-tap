@@ -8,6 +8,7 @@ class ChatmcpCli < Formula
   license "Apache-2.0"
 
   depends_on "python@3.12"
+  depends_on "pillow"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
@@ -89,10 +90,6 @@ class ChatmcpCli < Formula
     sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
-  resource "pillow" do
-    url "https://files.pythonhosted.org/packages/af/cb/bb5c01fcd2a69335b86c22142b2bccfc3464087efb7fd382eee5ffc7fdf7/pillow-11.2.1.tar.gz"
-    sha256 "a64dd61998416367b7ef979b73d3a85853ba9bec4c2925f74e588879a58716b6"
-  end
 
   def install
     virtualenv_install_with_resources
