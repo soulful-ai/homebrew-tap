@@ -79,19 +79,13 @@ class ChatmcpCli < Formula
     sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
+  resource "json5" do
+    url "https://files.pythonhosted.org/packages/12/be/c6c745ec4c4539b25a278b70e29793f10382947df0d9efba2fa09120895d/json5-0.12.0.tar.gz"
+    sha256 "0b4b6ff56801a1c7dc817b0241bca4ce474a0e6a163bfef3fc594d3fd263ff3a"
+  end
+
   def install
-    # Create virtualenv and install with dependencies
-    venv = virtualenv_create(libexec, "python3.12")
-    
-    # Install resources first
-    venv.pip_install resources
-    
-    # Install main package WITH dependencies (override --no-deps)
-    system libexec/"bin/pip", "install", "chatmcp-cli==1.1.0"
-    
-    # Create symlinks
-    bin.install_symlink libexec/"bin/chatmcp"
-    bin.install_symlink libexec/"bin/aider"
+    virtualenv_install_with_resources
   end
 
   test do
