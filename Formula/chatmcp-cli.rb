@@ -10,10 +10,10 @@ class ChatmcpCli < Formula
   depends_on "python@3.12"
 
   def install
-    # Create virtual environment
-    virtualenv_create(libexec, "python3.12")
+    # Create virtual environment manually
+    system "python3.12", "-m", "venv", libexec
     
-    # Install the package directly with pip
+    # Install the package
     system libexec/"bin/python", "-m", "pip", "install", "--upgrade", "pip"
     system libexec/"bin/python", "-m", "pip", "install", cached_download
     
