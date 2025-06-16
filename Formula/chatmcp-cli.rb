@@ -10,7 +10,16 @@ class ChatmcpCli < Formula
   depends_on "python@3.12"
 
   def install
-    virtualenv_install_with_resources
+    # Create a virtualenv
+    venv = virtualenv_create(libexec, "python3.12")
+    
+    # Install the package and all its dependencies using pip
+    system libexec/"bin/pip", "install", "--upgrade", "pip"
+    system libexec/"bin/pip", "install", cached_download
+    
+    # Create wrapper scripts for the executables
+    bin.install_symlink libexec/"bin/chatmcp"
+    bin.install_symlink libexec/"bin/aider"
   end
 
   test do
