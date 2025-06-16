@@ -65,8 +65,8 @@ class ChatmcpCli < Formula
   end
 
   resource "pyperclip" do
-    url "https://files.pythonhosted.org/packages/e9/43/45681b05cf81da2a8665ae18bd3ae8a1b6bfa5c21b8f4eca70088867c65b/pyperclip-1.9.0.tar.gz"
-    sha256 "37772d472f9e8dc48df6bb1b9b13e6b50c5d4e8db5b96f07cdf18b4c0b4e2daa"
+    url "https://files.pythonhosted.org/packages/30/23/2f0a3efc4d6a32f3b63cdff36cd398d9701d26cda58e3ab97ac79fb5e60d/pyperclip-1.9.0.tar.gz"
+    sha256 "b7de0142ddc81bfc5c7507eea19da920b92252b548b96186caf94a5e2527d310"
   end
 
   def install
