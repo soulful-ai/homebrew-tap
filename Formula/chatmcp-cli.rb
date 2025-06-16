@@ -80,7 +80,18 @@ class ChatmcpCli < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # Create virtualenv and install with dependencies
+    venv = virtualenv_create(libexec, "python3.12")
+    
+    # Install resources first
+    venv.pip_install resources
+    
+    # Install main package WITH dependencies (override --no-deps)
+    system libexec/"bin/pip", "install", "chatmcp-cli==1.1.0"
+    
+    # Create symlinks
+    bin.install_symlink libexec/"bin/chatmcp"
+    bin.install_symlink libexec/"bin/aider"
   end
 
   test do
