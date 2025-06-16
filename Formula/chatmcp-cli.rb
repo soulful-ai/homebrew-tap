@@ -1,8 +1,8 @@
 class ChatmcpCli < Formula
   desc "ChatMCP CLI - AI pair programming with MCP server integration"
   homepage "https://github.com/soulful-ai/platforma"
-  url "https://files.pythonhosted.org/packages/5f/a7/c19d5eda0e65af8feafaf6b722bc6ad5cfa0cb86798a4a3d64a16003bf4c/chatmcp_cli-1.1.1.tar.gz"
-  sha256 "mock_sha256_for_testing_1111111111111111111111111111111111111111"
+  url "https://files.pythonhosted.org/packages/8a/18/a48d30d895f1351e283057ebc7113360769b529ee233daafda089f85a700/chatmcp_cli-1.1.1.tar.gz"
+  sha256 "17e3076107c76dea3951cfbcc65ae5275266a4c07cd201faccf07f0f5f92c27d"
   license "Apache-2.0"
 
   depends_on "python@3.12"
