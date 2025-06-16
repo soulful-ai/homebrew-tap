@@ -30,23 +30,23 @@ class ChatmcpCli < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/0a/f7/6b84eb5c4e77f54d83b2e8f83b07b8e4e2b85af77a5b5c69901b01ce26e7/rich-14.0.0.tar.gz"
-    sha256 "8260cda28e3db6bf04d2d1ef4dbc03ba80a824c88b0e7668a0f23126a424844a"
+    url "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz"
+    sha256 "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/04/77/1c77e6efcfe9a5e3d63b0b3d11e1074b8e3fa3b96a5ca7ed6e6b79e9bcff/prompt_toolkit-3.0.51.tar.gz"
-    sha256 "33a9bad66f1e8dcbbc5b8b07e9b9a8bb2b4bb58e34cf0d1b92b6d94cdda8fa93"
+    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
+    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dccc6a93b259d80/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
+    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "litellm" do
-    url "https://files.pythonhosted.org/packages/de/4b/a5afe24a29cd7b83bcb80fb56b0c0ad7b4a2e04e6db08f8e7c10e85fef5c/litellm-1.68.1.tar.gz"
-    sha256 "cd25a5c90e4b3b0d8bb03e7c844b46c15b4e56b59da95b3b73fddbc8ad1aaede"
+    url "https://files.pythonhosted.org/packages/8d/15/df75f278fd998f6d6900f692b9de2fba2814b316c123c99072a813668aac/litellm-1.72.6.tar.gz"
+    sha256 "4e5c7e4273b09b765302d2faaec30f77b42255c0055b427b55ea02b8092b8582"
   end
 
   def install
