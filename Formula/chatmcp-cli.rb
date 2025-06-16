@@ -13,9 +13,22 @@ class ChatmcpCli < Formula
     system Formula["python@3.12"].opt_bin/"python3.12", "-m", "pip", "install", 
            "--user", "--break-system-packages", "chatmcp-cli==1.1.0"
     
-    # Create symlinks to the actual binaries installed by pip
-    bin.install_symlink libexec/"bin/chatmcp"
-    bin.install_symlink libexec/"bin/aider"
+    # Create wrapper scripts that set PYTHONUSERBASE
+    (bin/"chatmcp").write <<~EOS
+      #!/bin/bash
+      export PYTHONUSERBASE="#{libexec}"
+      exec "#{libexec}/bin/chatmcp" "$@"
+    EOS
+    
+    (bin/"aider").write <<~EOS
+      #!/bin/bash
+      export PYTHONUSERBASE="#{libexec}"
+      exec "#{libexec}/bin/aider" "$@"
+    EOS
+    
+    # Make scripts executable
+    chmod 0755, bin/"chatmcp"
+    chmod 0755, bin/"aider"
   end
 
   test do
