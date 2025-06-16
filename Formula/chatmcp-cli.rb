@@ -20,8 +20,8 @@ class ChatmcpCli < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/7f/de/e04b4cb97a4ce16e2b19b1d3e7bfde0e2dc5d63d8bac97a9b4e37c65a39b/importlib_metadata-7.2.1.tar.gz"
-    sha256 "cb52082e659e97afc5dac71e79de97d8681de3aa07ff18578330904a9d18e5b5"
+    url "https://files.pythonhosted.org/packages/76/66/650a33bd90f786193e4de4b3ad86ea60b53c89b669a5c7be931fac31cdb0/importlib_metadata-8.7.0.tar.gz"
+    sha256 "d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000"
   end
 
   resource "configargparse" do
