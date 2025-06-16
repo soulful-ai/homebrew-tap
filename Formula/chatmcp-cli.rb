@@ -8,8 +8,8 @@ class ChatmcpCli < Formula
   depends_on "python@3.12"
 
   def install
-    # Create virtual environment
-    system "python3.12", "-m", "venv", libexec
+    # Create virtual environment with pip enabled
+    system Formula["python@3.12"].opt_bin/"python3.12", "-m", "venv", "--with-pip", libexec
     
     # Install the package
     system libexec/"bin/python", "-m", "pip", "install", "--upgrade", "pip"
