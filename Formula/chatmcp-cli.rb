@@ -130,6 +130,11 @@ class ChatmcpCli < Formula
     sha256 "77e7ebfc6086972db421d3e05c91d5431b2b964865d33a9a32e55dd88da4bff8"
   end
 
+  resource "distro" do
+    url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"
+    sha256 "2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed"
+  end
+
   def install
     virtualenv_install_with_resources
   end
