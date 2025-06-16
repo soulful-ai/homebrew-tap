@@ -1,6 +1,4 @@
 class ChatmcpCli < Formula
-  include Language::Python::Virtualenv
-
   desc "ChatMCP CLI - AI pair programming with MCP server integration"
   homepage "https://github.com/soulful-ai/platforma"
   url "https://files.pythonhosted.org/packages/5f/a7/c19d5eda0e65af8feafaf6b722bc6ad5cfa0cb86798a4a3d64a16003bf4c/chatmcp_cli-1.1.0.tar.gz"
@@ -10,21 +8,27 @@ class ChatmcpCli < Formula
   depends_on "python@3.12"
 
   def install
-    # Use virtualenv with bootstrapping pip
-    virtualenv_create(libexec, "python3.12")
+    # Install using pip user install to avoid virtualenv issues
+    ENV["PYTHONUSERBASE"] = libexec
+    system Formula["python@3.12"].opt_bin/"python3.12", "-m", "pip", "install", 
+           "--user", "--no-deps", "chatmcp-cli==1.1.0"
     
-    # Bootstrap pip if it doesn't exist
-    unless (libexec/"bin/pip").exist?
-      system libexec/"bin/python", "-m", "ensurepip", "--upgrade"
-    end
+    # Create wrapper scripts that set the right Python path
+    (bin/"chatmcp").write <<~EOS
+      #!/bin/bash
+      export PYTHONPATH="#{libexec}/lib/python3.12/site-packages:$PYTHONPATH"
+      exec "#{Formula["python@3.12"].opt_bin}/python3.12" -m chatmcp_cli.main "$@"
+    EOS
     
-    # Install the package with all dependencies
-    system libexec/"bin/pip", "install", "--upgrade", "pip"
-    system libexec/"bin/pip", "install", "chatmcp-cli==1.1.0"
+    (bin/"aider").write <<~EOS
+      #!/bin/bash
+      export PYTHONPATH="#{libexec}/lib/python3.12/site-packages:$PYTHONPATH"
+      exec "#{Formula["python@3.12"].opt_bin}/python3.12" -m chatmcp_cli.main "$@"
+    EOS
     
-    # Create symlinks for the binaries
-    bin.install_symlink libexec/"bin/chatmcp"
-    bin.install_symlink libexec/"bin/aider"
+    # Make scripts executable
+    chmod 0755, bin/"chatmcp"
+    chmod 0755, bin/"aider"
   end
 
   test do
