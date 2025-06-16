@@ -11,11 +11,11 @@ class ChatmcpCli < Formula
 
   def install
     # Create a virtualenv
-    venv = virtualenv_create(libexec, "python3.12")
+    virtualenv_create(libexec, "python3.12")
     
-    # Install the package and all its dependencies using pip
+    # Install directly from PyPI using the package name (this will get all dependencies)
     system libexec/"bin/pip", "install", "--upgrade", "pip"
-    system libexec/"bin/pip", "install", cached_download
+    system libexec/"bin/pip", "install", "chatmcp-cli==1.1.0"
     
     # Create wrapper scripts for the executables
     bin.install_symlink libexec/"bin/chatmcp"
