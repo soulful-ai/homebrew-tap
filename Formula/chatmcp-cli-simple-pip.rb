@@ -10,20 +10,11 @@ class ChatmcpCli < Formula
   depends_on "python@3.12"
 
   def install
+    # Use pip with dependencies enabled for this specific package
     virtualenv_create(libexec, "python3.12")
-    
-    # Install the package with all dependencies
-    system libexec/"bin/pip", "install", "--upgrade", "pip"
     system libexec/"bin/pip", "install", cached_download
-    
-    # Create symlinks if the binaries exist
-    if (libexec/"bin/chatmcp").exist?
-      bin.install_symlink libexec/"bin/chatmcp"
-    end
-    
-    if (libexec/"bin/aider").exist?
-      bin.install_symlink libexec/"bin/aider"
-    end
+    bin.install_symlink libexec/"bin/chatmcp"
+    bin.install_symlink libexec/"bin/aider"
   end
 
   test do
