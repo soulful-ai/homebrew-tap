@@ -115,6 +115,11 @@ class ChatmcpCli < Formula
     sha256 "1ed4cd82c75df2a8bcb0da34400984183753933155d0c7d999fa533137685f2d"
   end
 
+  resource "mixpanel" do
+    url "https://files.pythonhosted.org/packages/bd/a3/9d71562db2107da31be6a988cac88cd1be11364d103b618a98ba92d2487b/mixpanel-4.10.1.tar.gz"
+    sha256 "29a6b5773dd34f05cf8e249f4e1d16e7b6280d6b58894551ce9a5aad7700a115"
+  end
+
   def install
     virtualenv_install_with_resources
   end
