@@ -49,6 +49,26 @@ class ChatmcpCli < Formula
     sha256 "4e5c7e4273b09b765302d2faaec30f77b42255c0055b427b55ea02b8092b8582"
   end
 
+  resource "shtab" do
+    url "https://files.pythonhosted.org/packages/5a/3e/837067b970c1d2ffa936c72f384a63fdec4e186b74da781e921354a94024/shtab-1.7.2.tar.gz"
+    sha256 "8c16673ade76a2d42417f03e57acf239bfb5968e842204c17990cae357d07d6f"
+  end
+
+  resource "gitpython" do
+    url "https://files.pythonhosted.org/packages/b6/a1/106fd9fa2dd989b6fb36e5893961f82992cf676381707253e0bf93eb1662/GitPython-3.1.44.tar.gz"
+    sha256 "c87e30b26253bf5418b01b0660f818967f82fa847c5d2d14e16fc28766b295b1"
+  end
+
+  resource "pexpect" do
+    url "https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.9.0.tar.gz"
+    sha256 "ee7d41123f3c9911050ea2c2dac107568dc43b2d3b0c7557a33212c398ead30f"
+  end
+
+  resource "pyperclip" do
+    url "https://files.pythonhosted.org/packages/e9/43/45681b05cf81da2a8665ae18bd3ae8a1b6bfa5c21b8f4eca70088867c65b/pyperclip-1.9.0.tar.gz"
+    sha256 "37772d472f9e8dc48df6bb1b9b13e6b50c5d4e8db5b96f07cdf18b4c0b4e2daa"
+  end
+
   def install
     virtualenv_install_with_resources
   end
