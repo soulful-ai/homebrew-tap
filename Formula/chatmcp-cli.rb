@@ -11,24 +11,11 @@ class ChatmcpCli < Formula
     # Install using pip user install to avoid virtualenv issues
     ENV["PYTHONUSERBASE"] = libexec
     system Formula["python@3.12"].opt_bin/"python3.12", "-m", "pip", "install", 
-           "--user", "--no-deps", "--break-system-packages", "chatmcp-cli==1.1.0"
+           "--user", "--break-system-packages", "chatmcp-cli==1.1.0"
     
-    # Create wrapper scripts that set the right Python path
-    (bin/"chatmcp").write <<~EOS
-      #!/bin/bash
-      export PYTHONPATH="#{libexec}/lib/python3.12/site-packages:$PYTHONPATH"
-      exec "#{Formula["python@3.12"].opt_bin}/python3.12" -m chatmcp_cli.main "$@"
-    EOS
-    
-    (bin/"aider").write <<~EOS
-      #!/bin/bash
-      export PYTHONPATH="#{libexec}/lib/python3.12/site-packages:$PYTHONPATH"
-      exec "#{Formula["python@3.12"].opt_bin}/python3.12" -m chatmcp_cli.main "$@"
-    EOS
-    
-    # Make scripts executable
-    chmod 0755, bin/"chatmcp"
-    chmod 0755, bin/"aider"
+    # Create symlinks to the actual binaries installed by pip
+    bin.install_symlink libexec/"bin/chatmcp"
+    bin.install_symlink libexec/"bin/aider"
   end
 
   test do
