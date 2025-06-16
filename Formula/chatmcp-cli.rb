@@ -9,16 +9,13 @@ class ChatmcpCli < Formula
 
   depends_on "python@3.12"
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+  end
+
   def install
-    # Create a virtualenv with pip
-    venv = virtualenv_create(libexec, "python3.12")
-    
-    # Install directly from PyPI using the package name (this will get all dependencies)  
-    venv.pip_install "chatmcp-cli==1.1.0"
-    
-    # Create wrapper scripts for the executables
-    bin.install_symlink libexec/"bin/chatmcp"
-    bin.install_symlink libexec/"bin/aider"
+    virtualenv_install_with_resources
   end
 
   test do
