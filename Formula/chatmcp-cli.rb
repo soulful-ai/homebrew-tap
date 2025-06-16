@@ -10,9 +10,10 @@ class ChatmcpCli < Formula
   depends_on "python@3.12"
 
   def install
-    # Simple approach: use pip to install the package with all dependencies
+    # Create virtualenv and install package from PyPI
     venv = virtualenv_create(libexec, "python3.12")
-    system libexec/"bin/pip", "install", "#{buildpath}"
+    system libexec/"bin/pip", "install", "--upgrade", "pip"
+    system libexec/"bin/pip", "install", "--verbose", "chatmcp-cli==1.1.0"
     bin.install_symlink libexec/"bin/chatmcp"
     bin.install_symlink libexec/"bin/aider"
   end
