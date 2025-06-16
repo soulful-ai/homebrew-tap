@@ -11,7 +11,7 @@ class ChatmcpCli < Formula
     # Install using pip user install to avoid virtualenv issues
     ENV["PYTHONUSERBASE"] = libexec
     system Formula["python@3.12"].opt_bin/"python3.12", "-m", "pip", "install", 
-           "--user", "--no-deps", "chatmcp-cli==1.1.0"
+           "--user", "--no-deps", "--break-system-packages", "chatmcp-cli==1.1.0"
     
     # Create wrapper scripts that set the right Python path
     (bin/"chatmcp").write <<~EOS
