@@ -125,6 +125,11 @@ class ChatmcpCli < Formula
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
+  resource "posthog" do
+    url "https://files.pythonhosted.org/packages/cf/6f/835a48728adb60b51dbe6bcc528480e38f1f80769a48704f687d83aefe7e/posthog-4.0.1.tar.gz"
+    sha256 "77e7ebfc6086972db421d3e05c91d5431b2b964865d33a9a32e55dd88da4bff8"
+  end
+
   def install
     virtualenv_install_with_resources
   end
