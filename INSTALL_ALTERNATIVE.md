@@ -22,7 +22,7 @@ pip install -e .
 ## Method 3: Use nx from this repo
 ```bash
 # Set up API keys in packages/chatmcp_cli/.env
-yarn nx run platforma:develop:chatmcp_cli
+npx nx run platforma:develop:chatmcp_cli
 ```
 
 All methods will give you:
